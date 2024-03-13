@@ -1,6 +1,6 @@
 import 'package:expense_tracker/Screens/add_expense_screen.dart';
+import 'package:expense_tracker/Screens/details_list_screen.dart';
 import 'package:expense_tracker/Screens/home_screen.dart';
-import 'package:expense_tracker/Screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 class ManagerScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _ManagerScreenState extends State<ManagerScreen> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const AddExpenseScreen(),
-    const SettingsScreen(),
+    const DetailsListScreen(),
   ];
 
   _onItemTapped(int index) {
@@ -34,9 +34,8 @@ class _ManagerScreenState extends State<ManagerScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add Expense'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: 'Settings'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'New Expense'),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'List'),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

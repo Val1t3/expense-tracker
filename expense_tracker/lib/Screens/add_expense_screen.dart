@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AddExpenseScreen extends StatelessWidget {
+class AddExpenseScreen extends StatefulWidget {
   const AddExpenseScreen({super.key});
+
+  @override
+  State<AddExpenseScreen> createState() => _AddExpenseScreenState();
+}
+
+class _AddExpenseScreenState extends State<AddExpenseScreen> {
+  List<String> list = <String>["Expense", "Income"];
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +24,7 @@ class AddExpenseScreen extends StatelessWidget {
               decoration: InputDecoration(
                   hintText: "Title", border: OutlineInputBorder()),
             ),
+            // DropdownButton(items: items, onChanged: onChanged)
           ],
         )),
       ),

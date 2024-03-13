@@ -5,6 +5,21 @@ class AddExpenseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+        home: Container(
+      margin: const EdgeInsets.all(40.0),
+      child: const Scaffold(
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                  hintText: "Title", border: OutlineInputBorder()),
+            ),
+          ],
+        )),
+      ),
+    ));
   }
 }

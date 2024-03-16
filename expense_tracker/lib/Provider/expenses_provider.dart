@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class Expense {
   String title;
   String type;
-  int value;
+  double amount;
   DateTime date;
 
   Expense(
       {required this.title,
       required this.type,
-      required this.value,
+      required this.amount,
       required this.date});
 }
 

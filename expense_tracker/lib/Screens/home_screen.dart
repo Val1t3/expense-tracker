@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(expense.type),
-                        Text(expense.value.toString()),
+                        Text(expense.amount.toString()),
                         Text(expense.date.toString()), // Display date value
                       ],
                     ),

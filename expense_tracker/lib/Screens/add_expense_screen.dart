@@ -1,4 +1,6 @@
+import 'package:expense_tracker/Provider/expenses_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AddExpenseScreen extends StatefulWidget {
   const AddExpenseScreen({super.key});
@@ -9,18 +11,20 @@ class AddExpenseScreen extends StatefulWidget {
 
 class _AddExpenseScreenState extends State<AddExpenseScreen> {
   List<String> list = <String>["Expense", "Income"];
-  List<String> expenses = List.empty(growable: true);
 
   final TextEditingController _titleController = TextEditingController();
 
   _addExpenseTest() {
+    ExpenseProvider expenseProvider =
+        Provider.of<ExpenseProvider>(context, listen: false);
     String title = _titleController.text;
-    setState(() {
-      expenses.add(title);
-    });
 
-    // TODO: Remove this print statement
-    print(expenses);
+    expenseProvider.addExpense(Expense(
+      title: title,
+      type: "Expense",
+      value: 100,
+      date: DateTime.now(),
+    ));
   }
 
   @override

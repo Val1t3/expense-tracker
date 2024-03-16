@@ -16,17 +16,23 @@ class HomeScreen extends StatelessWidget {
                 itemCount: expenseProvider.expenses.length,
                 itemBuilder: (context, index) {
                   final expense = expenseProvider.expenses[index];
-                  return ListTile(
-                    title: Text(expense.title),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(expense.type),
-                        Text(expense.amount.toString()),
-                        Text(expense.date.toString()), // Display date value
-                      ],
-                    ),
-                  );
+                  return Dismissible(
+                      key: Key(expense.toString()),
+                      direction: DismissDirection.horizontal,
+                      onDismissed: (direction) {
+                        expenseProvider.removeExpense(expense);
+                      },
+                      child: ListTile(
+                          title: Text(expense.title),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(expense.type),
+                              Text(expense.amount.toString()),
+                              Text(expense.date
+                                  .toString()), // Display date value
+                            ],
+                          )));
                 },
               ),
             ),

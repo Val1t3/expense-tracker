@@ -1,9 +1,15 @@
+import 'package:expense_tracker/Provider/expenses_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'Screens/manager_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider(create: (context) => ExpenseProvider()),
+    ], child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -14,8 +14,8 @@ class _ManagerScreenState extends State<ManagerScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    const HomeScreen(),
-    const AddExpenseScreen(),
+    const HomeScreen(key: ValueKey('home_screen')),
+    const AddExpenseScreen(key: ValueKey('add_expense_screen')),
     const DetailsListScreen(),
   ];
 
